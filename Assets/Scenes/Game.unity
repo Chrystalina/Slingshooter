@@ -179,7 +179,7 @@ Transform:
   - {fileID: 911075697}
   - {fileID: 1610536467}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!135 &896791946
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -204,6 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabProjectile: {fileID: 183758, guid: 0372b2ecff6021a46b13d429608b7f7f, type: 2}
+  shotMult: 10
 --- !u!1 &911075694
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,9 +361,10 @@ Transform:
   m_LocalRotation: {x: .408217937, y: -.234569728, z: .109381676, w: .875426054}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1990389300}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1 &1981813290
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,6 +437,7 @@ GameObject:
   - 92: {fileID: 1990389298}
   - 124: {fileID: 1990389297}
   - 81: {fileID: 1990389296}
+  - 114: {fileID: 1990389301}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -501,12 +504,24 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1990389295}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -.408217937, y: .234569728, z: -.109381676, w: .875426054}
+  m_LocalPosition: {x: -5, y: -8.56250286, z: -3.26856947}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1965457449}
   m_RootOrder: 0
+--- !u!114 &1990389301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1990389295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b2688f2e5c8894293539579f96561d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poi: {fileID: 0}
 --- !u!1 &2075357884
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,8 +590,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2075357884}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -10, z: 0}
-  m_LocalScale: {x: 100, y: 1, z: 1}
+  m_LocalPosition: {x: 100, y: -10, z: 0}
+  m_LocalScale: {x: 400, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
