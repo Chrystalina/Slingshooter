@@ -22,9 +22,15 @@ public class FollowCam : MonoBehaviour {
 		Vector3 destination = poi.transform.position; //.transform.position because you only want the destination to have the 
 		//coordinates as poi. with transform.position it only grabs the coordinates
 
+		//Limit the x & y positions to minimum values and avoids bouncing of camera therefore
+		destination.x = Mathf.Max (0, destination.x);
+		destination.y = Mathf.Max (0, destination.y);
+
 		destination.z = camZ;
 
 		transform.position = destination;
+
+		this.GetComponent<Camera> ().orthographicSize = 10 + destination.y; //Mathf.Max (10, destinationy.y); theoretically also possible
 	}
 
 }
