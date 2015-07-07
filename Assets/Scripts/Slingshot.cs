@@ -8,6 +8,11 @@ public class Slingshot : MonoBehaviour {
 	public GameObject prefabProjectile;
 	public float shotMult = 4.0f;
 
+
+	public AudioSource Drums;
+	//public AudioSource source;
+	//public AudioClip Drums;
+
 	// Internal variable
 	private GameObject launchPoint;
 	private Vector3 launchPos;
@@ -19,23 +24,33 @@ public class Slingshot : MonoBehaviour {
 		Transform launchPointTransform = transform.Find ("LaunchPoint");
 		launchPoint = launchPointTransform.gameObject;
 		launchPoint.SetActive (false);
+		//AudioSource source = GetComponent<AudioSource>();
+		AudioSource Drums = GetComponent<AudioSource>();
+
+	
+	
 
 		launchPos = launchPointTransform.position;
 	}
 
 	void OnMouseEnter(){
 		launchPoint.SetActive (true);
+
+	
+
 		//print ("blablablabla");
 
 	}
 
 	void OnMouseExit(){
 		launchPoint.SetActive (false);
+	
 		//print ("lalalalal");
 	}
 
 	void OnMouseDown(){
 		aimingMode = true;
+		Drums.Play();
 
 		//Instantiate a new projectile
 		projectile = Instantiate(prefabProjectile) as GameObject;
@@ -51,6 +66,10 @@ public class Slingshot : MonoBehaviour {
 		projectile.GetComponent<Rigidbody> ().isKinematic = true;
 
 	}
+
+	void OnMouseUp() {
+		Drums.Pause();
+		}
 
 	void Update() {
 		//If we're not in aiming mode, do nothing
