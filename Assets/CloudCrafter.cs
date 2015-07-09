@@ -38,6 +38,7 @@ public class CloudCrafter : MonoBehaviour {
 
 			cPos.x = Random.Range(cloudPosMin.x, cloudPosMax.x);
 			cPos.y = Random.Range(cloudPosMin.y, cloudPosMax.y);
+			cPos.z = Random.Range(cloudPosMin.z, cloudPosMax.z);
 
 			cloud.transform.position = cPos;
 			

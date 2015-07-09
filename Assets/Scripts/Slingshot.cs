@@ -7,6 +7,7 @@ public class Slingshot : MonoBehaviour {
 	// Fields seen in the Inspector panel
 	public GameObject prefabProjectile;
 	public float shotMult = 4.0f;
+	public GameObject Star;
 
 
 	public AudioSource Drums;
@@ -17,6 +18,9 @@ public class Slingshot : MonoBehaviour {
 	private GameObject launchPoint;
 	private Vector3 launchPos;
 	private GameObject projectile;
+	private Vector3 aimPos;
+
+
 
 	bool aimingMode;
 
@@ -24,8 +28,10 @@ public class Slingshot : MonoBehaviour {
 		Transform launchPointTransform = transform.Find ("LaunchPoint");
 		launchPoint = launchPointTransform.gameObject;
 		launchPoint.SetActive (false);
+		//aimPos = aimStar.transform;
 		//AudioSource source = GetComponent<AudioSource>();
 		AudioSource Drums = GetComponent<AudioSource>();
+		aimPos = Star.transform;
 
 	
 	
@@ -108,5 +114,7 @@ public class Slingshot : MonoBehaviour {
 			FollowCam.S.poi = projectile;
 
 		}
+
+		//if (projectile.transform = 
 	}
 }
