@@ -20,7 +20,7 @@ public class Slingshot : MonoBehaviour {
 		launchPoint = launchPointTrans.gameObject;
 		launchPoint.SetActive(false);
 		launchPos = launchPointTrans.position;
-		//AudioSource Drums = GetComponent<AudioSource> ();
+		AudioSource Drums = GetComponent<AudioSource>();
 	}
 	
 	void OnMouseEnter() {
@@ -50,6 +50,10 @@ public class Slingshot : MonoBehaviour {
 		projectile.GetComponent<Rigidbody>().isKinematic = true;
 
 		Drums.Play();
+	}
+
+	void OnMouseUp(){
+		Drums.Pause ();
 	}
 
 	void Update() {
@@ -87,7 +91,6 @@ public class Slingshot : MonoBehaviour {
 
 			GameController.ShotFired();
 
-			Drums.Pause();
 		}
 		
 	}
