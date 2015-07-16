@@ -3,34 +3,58 @@ using System.Collections;
 
 public class FollowCam : MonoBehaviour {
 
-	public static FollowCam S;
+	public static FollowCam S; // Singleton Instance
 
-	public GameObject poi; //poi=Point of Interest, thing camera has to follow
+	// Fields shown in Unity Inspector pane
+	public float easing = 0.05f;
+	public Vector2 minXY;
 
-	private float camZ;
-
-	void Awake() {
+	// Fields set dynamically	
+	public GameObject poi; // The Point Of Interest
+	private float camZ; // Desired Camera Z Position
+	
+	
+	void Awake () {
 		S = this;
 		camZ = this.transform.position.z;
 	}
+	
+	void FixedUpdate () {
 
-	void Update() {
-		if (poi == null) { //null in inspector shown as "none" (because you can't set an object to zero)
-			return;
+		Vector3 destination;
+
+		// If the point of interest is empty, set it to (0,0,0)
+		if(poi == null) {
+			destination = Vector3.zero;
+		} else {
+			// Otherwise, get the poi's position
+			destination = poi.transform.position;
+
+			// If the poi is the projectile check if it is resting
+			if (poi.tag == "Projectile"){
+				// If its not moving
+				if(poi.GetComponent<Rigidbody>().IsSleeping()) {
+					// Return to default view in next Update()
+					poi = null;
+					return;
+				}
+			}
 		}
 
-		Vector3 destination = poi.transform.position; //.transform.position because you only want the destination to have the 
-		//coordinates as poi. with transform.position it only grabs the coordinates
+		// Limit the X and Y to minimum values
+		destination.x = Mathf.Max (minXY.x, destination.x);
+		destination.y = Mathf.Max (minXY.y, destination.y);
 
-		//Limit the x & y positions to minimum values and avoids bouncing of camera therefore
-		destination.x = Mathf.Max (0, destination.x);
-		destination.y = Mathf.Max (0, destination.y);
+		// Interpolate between current camera position and poi
+		destination = Vector3.Lerp(transform.position, destination, easing);
 
+		// Save the camZ in this destination
 		destination.z = camZ;
 
+		// Set camera to this destination
 		transform.position = destination;
 
-		this.GetComponent<Camera> ().orthographicSize = 10 + destination.y; //Mathf.Max (10, destinationy.y); theoretically also possible
+		// Set OrthographicSize of camera to keep the ground in view
+		this.GetComponent<Camera>().orthographicSize = destination.y + 10;
 	}
-
 }
