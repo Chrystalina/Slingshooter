@@ -1,8 +1,14 @@
 fileFormatVersion: 2
 guid: 178e1a4f5d94c48ce8285505139d7552
+timeCreated: 1437049821
+licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - prefabProjectile: {instanceID: 0}
+  - Drums: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 

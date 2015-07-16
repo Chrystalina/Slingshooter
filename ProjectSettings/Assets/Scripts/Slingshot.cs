@@ -6,7 +6,6 @@ public class Slingshot : MonoBehaviour {
 	// Fields set in the Unity Inspector pane
 	public GameObject prefabProjectile;
 	public float velocityMult = 4f;
-	public AudioSource Drums;
 	
 	// Fields set dynamically
 	private GameObject launchPoint;
@@ -20,7 +19,6 @@ public class Slingshot : MonoBehaviour {
 		launchPoint = launchPointTrans.gameObject;
 		launchPoint.SetActive(false);
 		launchPos = launchPointTrans.position;
-		//AudioSource Drums = GetComponent<AudioSource> ();
 	}
 	
 	void OnMouseEnter() {
@@ -48,8 +46,6 @@ public class Slingshot : MonoBehaviour {
 
 		// Set it to kinematic for now
 		projectile.GetComponent<Rigidbody>().isKinematic = true;
-
-		Drums.Play();
 	}
 
 	void Update() {
@@ -86,8 +82,6 @@ public class Slingshot : MonoBehaviour {
 			projectile = null;
 
 			GameController.ShotFired();
-
-			Drums.Pause();
 		}
 		
 	}
