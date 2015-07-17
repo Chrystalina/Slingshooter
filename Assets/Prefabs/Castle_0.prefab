@@ -307,12 +307,13 @@ GameObject:
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 408760}
-  - 33: {fileID: 3308760}
+  - 224: {fileID: 22435758}
   - 65: {fileID: 6508760}
   - 23: {fileID: 2308760}
   - 114: {fileID: 11408762}
   - 82: {fileID: 8204884}
+  - 222: {fileID: 22297772}
+  - 33: {fileID: 3308760}
   m_Layer: 0
   m_Name: Goal
   m_TagString: Untagged
@@ -437,7 +438,7 @@ Transform:
   - {fileID: 408738}
   - {fileID: 408746}
   - {fileID: 408750}
-  - {fileID: 408760}
+  - {fileID: 22435758}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &408742
@@ -548,18 +549,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 408740}
   m_RootOrder: 2
---- !u!4 &408760
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 108760}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 3, y: 4, z: 4}
-  m_Children: []
-  m_Father: {fileID: 408740}
-  m_RootOrder: 16
 --- !u!4 &408762
 Transform:
   m_ObjectHideFlags: 1
@@ -1624,6 +1613,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Victory: {fileID: 8204884}
+--- !u!222 &22297772
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108760}
+--- !u!224 &22435758
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108760}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 4, z: 4}
+  m_Children: []
+  m_Father: {fileID: 408740}
+  m_RootOrder: 16
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: 2}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

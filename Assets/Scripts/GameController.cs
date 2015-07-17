@@ -25,12 +25,17 @@ public class GameController : MonoBehaviour {
 	public GameObject castle; // The current castle
 	public GameState state = GameState.idle;
 	public string showing = "Slingshot"; // FollowCam mode
+
+	//public GameObject StartButton;
+	public RawImage Congratulations;
+
 	
 	void Start(){
 		S = this;
 		level = 0;
 		levelMax = castles.Length;
 		StartLevel();
+		Congratulations = gameObject.GetComponent<RawImage> ();
 	}
 
 	void StartLevel() {
@@ -38,6 +43,7 @@ public class GameController : MonoBehaviour {
 		if(castle != null) {
 			Destroy (castle);
 		}
+
 
 		// Destroy the old projectiles
 		GameObject[] projectiles = GameObject.FindGameObjectsWithTag("Projectile");
@@ -65,10 +71,13 @@ public class GameController : MonoBehaviour {
 	void UpdateGT() {
 		gtLevel.text = "Level:" + (level+1) + " of " + levelMax;
 		gtScore.text = "Shots Taken: " + shotsTaken;
+
+
 	}
 
 	void Update() {
 		UpdateGT();
+
 
 		// Check for level end
 		if(state == GameState.playing && Goal.goalMet) {
@@ -79,6 +88,9 @@ public class GameController : MonoBehaviour {
 				SwitchView("Both");
 				// Start next level in 2 seconds
 				Invoke("NextLevel", 2f);
+
+				Congratulations.enabled = true;
+
 			}
 		}
 	}
