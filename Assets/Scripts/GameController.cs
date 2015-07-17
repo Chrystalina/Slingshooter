@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour {
 	public GameObject[] castles; // An array with all castles
 	public Text gtLevel; // Level GUI Text
 	public Text gtScore; // Score GUI Text
+	public Text gratz; // Congratulation Text
 	public Vector3 castlePos; // Place to put castles
 
 	// Dynamic fields
@@ -71,8 +72,6 @@ public class GameController : MonoBehaviour {
 	void UpdateGT() {
 		gtLevel.text = "Level:" + (level+1) + " of " + levelMax;
 		gtScore.text = "Shots Taken: " + shotsTaken;
-
-
 	}
 
 	void Update() {
@@ -81,17 +80,16 @@ public class GameController : MonoBehaviour {
 
 		// Check for level end
 		if(state == GameState.playing && Goal.goalMet) {
-			if(FollowCam.S.poi.tag == "Projectile" &&  FollowCam.S.poi.GetComponent<Rigidbody>().IsSleeping()) {
+			//if(FollowCam.S.poi.tag == "Projectile" &&  FollowCam.S.poi.GetComponent<Rigidbody>().IsSleeping()) {
 				// Change state to stop checking for level end
 				state = GameState.levelEnd;
 				// Zoom out
 				SwitchView("Both");
 				// Start next level in 2 seconds
 				Invoke("NextLevel", 2f);
-
 				Congratulations.enabled = true;
 
-			}
+			//}
 		}
 	}
 
