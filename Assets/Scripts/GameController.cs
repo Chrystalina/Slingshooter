@@ -16,7 +16,6 @@ public class GameController : MonoBehaviour {
 	public GameObject[] castles; // An array with all castles
 	public Text gtLevel; // Level GUI Text
 	public Text gtScore; // Score GUI Text
-	public Text gratz; // Congratulation Text
 	public Vector3 castlePos; // Place to put castles
 
 	// Dynamic fields
@@ -27,16 +26,12 @@ public class GameController : MonoBehaviour {
 	public GameState state = GameState.idle;
 	public string showing = "Slingshot"; // FollowCam mode
 
-	//public GameObject StartButton;
-	public RawImage Congratulations;
-
 	
 	void Start(){
 		S = this;
 		level = 0;
 		levelMax = castles.Length;
 		StartLevel();
-		Congratulations = gameObject.GetComponent<RawImage> ();
 	}
 
 	void StartLevel() {
@@ -87,7 +82,7 @@ public class GameController : MonoBehaviour {
 				SwitchView("Both");
 				// Start next level in 2 seconds
 				Invoke("NextLevel", 2f);
-				Congratulations.enabled = true;
+
 
 			//}
 		}
