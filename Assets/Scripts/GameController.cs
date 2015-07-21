@@ -80,8 +80,8 @@ public class GameController : MonoBehaviour {
 				state = GameState.levelEnd;
 				// Zoom out
 				SwitchView("Both");
-				// Start next level in 2 seconds
-				Invoke("NextLevel", 2f);
+				// Start next level in 6 seconds
+				Invoke("NextLevel", 6f);
 
 
 			//}
