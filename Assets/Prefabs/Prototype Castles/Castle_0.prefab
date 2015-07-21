@@ -1917,6 +1917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Victory: {fileID: 8269464}
+  Glow: {fileID: 0}
 --- !u!222 &22248402
 CanvasRenderer:
   m_ObjectHideFlags: 1

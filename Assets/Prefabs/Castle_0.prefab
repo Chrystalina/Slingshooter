@@ -313,7 +313,6 @@ GameObject:
   - 114: {fileID: 11408762}
   - 82: {fileID: 8204884}
   - 222: {fileID: 22297772}
-  - 33: {fileID: 3308760}
   - 198: {fileID: 19844904}
   - 199: {fileID: 19941406}
   m_Layer: 0
@@ -1345,13 +1344,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108758}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!33 &3308760
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 108760}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &3308762
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -1970,7 +1962,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: 10
+      scalar: 15
       maxCurve:
         serializedVersion: 2
         m_Curve:
